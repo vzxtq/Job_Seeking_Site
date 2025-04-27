@@ -15,7 +15,8 @@ builder.Services.AddControllers()
 });
 
 builder.Services.AddDbContext<ProfileDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ProfileDbConnection")));
+
 
 var key = builder.Configuration["Jwt:Key"];
 builder.Services.AddAuthentication(options =>
@@ -34,7 +35,7 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
         NameClaimType = "unique_name", 
         RoleClaimType = "role"
     };
