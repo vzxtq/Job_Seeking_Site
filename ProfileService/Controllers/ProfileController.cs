@@ -47,35 +47,26 @@ public class ProfileController : ControllerBase
     }
     
     [Authorize]
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetProfile([FromRoute] Guid id)
+    [HttpGet("me")]
+    public IActionResult GetProfile()
     {
-        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        if (userId == null)
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? 
+                    User.FindFirst("sub")?.Value ?? 
+                    User.FindFirst("unique_name")?.Value;
+
+        var email = User.FindFirst(ClaimTypes.Email)?.Value;
+
+        var roles = User.FindAll(ClaimTypes.Role).Select(r => r.Value).ToList();
+        if (!roles.Any())
         {
-            return Unauthorized("User not authenticated.");
+            roles = User.FindAll("role").Select(r => r.Value).ToList();
         }
 
-        var profile = await _context.Profiles.FindAsync(id);
-        if (profile == null)
+        return Ok(new
         {
-            return NotFound("Profile not found.");
-        }
-
-        if (profile.Id.ToString() != userId && User.IsInRole("Admin") == false)
-        {
-            return Forbid("You do not have permission to access this profile.");
-        }
-
-        var profileDto = new ProfileService.DTOs.Profile
-        {
-            Id = profile.Id,
-            FullName = profile.FullName,
-            Email = profile.Email,
-            Role = profile.Role
-        };
-
-        return Ok(profileDto);
+            UserId = userId,
+            Email = email,
+            Roles = roles
+        });
     }
-
 }
