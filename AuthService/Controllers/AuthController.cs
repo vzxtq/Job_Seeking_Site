@@ -2,8 +2,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration.UserSecrets;
 using Microsoft.IdentityModel.Tokens;
+using ProfileService.Models;
 
 [ApiController]
 [Route("api/auth")]
@@ -19,7 +19,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] User user)
+public async Task<IActionResult> Register([FromBody] User user)
     {
         if (_context.Users.Any(u => u.Email == user.Email))
         {
@@ -29,7 +29,26 @@ public class AuthController : ControllerBase
         user.Id = Guid.NewGuid();
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
+
+        var profileData = new ProfileService.Models.ProfileModel
+        {
+            FullName = user.FullName,
+            Email = user.Email,
+            Role = (ProfileService.Models.RoleType)(Enum.TryParse<RoleType>(user.Role.ToString(), out RoleType parsedRole) ? parsedRole : RoleType.Employee)
+        };   
+
+        using (var HttpClient = new HttpClient())
+        {
+            var profileServiceUrl = "http://localhost:5055/api/profile";
+            var response = await HttpClient.PostAsJsonAsync(profileServiceUrl, profileData);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return StatusCode((int)response.StatusCode, "Failed to create profile.");
+            }
+        }
         return Ok("User registered successfully.");
+
     }
 
     [HttpPost("login")]
@@ -49,6 +68,7 @@ public class AuthController : ControllerBase
             Subject = new ClaimsIdentity(new Claim[]
             {
                 new Claim(ClaimTypes.Name, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role, user.Role.ToString())
             }),
             Expires = DateTime.UtcNow.AddHours(1),
@@ -60,7 +80,7 @@ public class AuthController : ControllerBase
         var token = tokenHandler.CreateToken(tokenDescriptor);
         var tokenString = tokenHandler.WriteToken(token);
 
-        return Ok("Login successful. Token: " + tokenString);
+        return Ok(new { Token = tokenString });
 
     }
 }

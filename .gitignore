@@ -44,3 +44,5 @@ TestResult.xml
 nunit-*.xml
 
 appsettings.json
+
+.fake

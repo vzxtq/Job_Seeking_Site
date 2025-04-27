@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "NVO7cgqQgTGQDk9iVc6MoKqmUABgF0xZWR4n2uX1+fQ=",
+  "Hash": "pFsCfmSr3OvZNTUMr9hfTH4evU+6N6bI4j4D6AC5akw=",
   "Source": "AuthService",
   "BasePath": "_content/AuthService",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\user\\jobPlatform\\ProfileService\\ProfileService.csproj",
+      "Version": 2,
+      "Source": "ProfileService",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": [],
   "Endpoints": []
