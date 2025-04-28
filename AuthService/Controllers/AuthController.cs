@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using ProfileService.Models;
@@ -81,6 +82,12 @@ public async Task<IActionResult> Register([FromBody] User user)
         var tokenString = tokenHandler.WriteToken(token);
 
         return Ok(new { Token = tokenString });
+    }
 
+    [Authorize]
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout()
+    {
+        return Ok("Logged out successfully.");
     }
 }

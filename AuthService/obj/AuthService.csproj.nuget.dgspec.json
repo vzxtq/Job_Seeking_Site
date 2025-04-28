@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\jobPlatform\\authservice\\AuthService.csproj": {}
+    "C:\\Users\\user\\jobPlatform\\AuthService\\AuthService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\jobPlatform\\authservice\\AuthService.csproj": {
+    "C:\\Users\\user\\jobPlatform\\AuthService\\AuthService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\jobPlatform\\authservice\\AuthService.csproj",
+        "projectUniqueName": "C:\\Users\\user\\jobPlatform\\AuthService\\AuthService.csproj",
         "projectName": "AuthService",
-        "projectPath": "C:\\Users\\user\\jobPlatform\\authservice\\AuthService.csproj",
+        "projectPath": "C:\\Users\\user\\jobPlatform\\AuthService\\AuthService.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\jobPlatform\\authservice\\obj\\",
+        "outputPath": "C:\\Users\\user\\jobPlatform\\AuthService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
