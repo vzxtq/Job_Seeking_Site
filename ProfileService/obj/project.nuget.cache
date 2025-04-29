@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oN2x/PnQcPM=",
+  "dgSpecHash": "IJjr3QGcCYY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\jobPlatform\\ProfileService\\ProfileService.csproj",
+  "projectFilePath": "C:\\Users\\user\\jobPlatform\\profileservice\\ProfileService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.0\\microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",
