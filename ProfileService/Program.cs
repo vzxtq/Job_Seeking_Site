@@ -14,9 +14,9 @@ builder.Services.AddControllers()
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
 });
 
+var connectionString = builder.Configuration["ProfileDbConnection"];
 builder.Services.AddDbContext<ProfileDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("ProfileDbConnection")));
-
+    options.UseNpgsql(connectionString));
 
 var key = builder.Configuration["Jwt:Key"];
 builder.Services.AddAuthentication(options =>
@@ -51,4 +51,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run("http://0.0.0.0:8080");

@@ -1,0 +1,2 @@
+CREATE DATABASE job_db;
+CREATE DATABASE auth_db;

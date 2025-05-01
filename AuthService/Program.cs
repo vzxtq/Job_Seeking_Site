@@ -14,8 +14,9 @@ builder.Services.AddControllers()
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
 });
 
+var connectionString = builder.Configuration["AuthDbConnection"];
 builder.Services.AddDbContext<AuthDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("AuthDbConnection")));
+    options.UseNpgsql(connectionString));
 
 builder.Services.AddAuthentication(options =>
 {
@@ -47,4 +48,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run("http://0.0.0.0:8080");

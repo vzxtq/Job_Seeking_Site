@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\user\\jobPlatform\\ProfileService\\ProfileService.csproj": {
-                "projectPath": "C:\\Users\\user\\jobPlatform\\ProfileService\\ProfileService.csproj"
+              "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj": {
+                "projectPath": "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj"
               }
             }
           }
@@ -121,14 +121,14 @@
         }
       }
     },
-    "C:\\Users\\user\\jobPlatform\\ProfileService\\ProfileService.csproj": {
+    "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\jobPlatform\\ProfileService\\ProfileService.csproj",
-        "projectName": "ProfileService",
-        "projectPath": "C:\\Users\\user\\jobPlatform\\ProfileService\\ProfileService.csproj",
+        "projectUniqueName": "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj",
+        "projectName": "JobPlatform.Shared",
+        "projectPath": "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\jobPlatform\\ProfileService\\obj\\",
+        "outputPath": "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -167,46 +167,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[8.0.15, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.4, )"
-            },
-            "Microsoft.IdentityModel.JsonWebTokens": {
-              "target": "Package",
-              "version": "[8.9.0, )"
-            },
-            "Microsoft.IdentityModel.Tokens": {
-              "target": "Package",
-              "version": "[8.9.0, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[9.0.4, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[8.1.1, )"
-            },
-            "System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[8.9.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -219,9 +179,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

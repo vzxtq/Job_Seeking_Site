@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProfileService\ProfileService.csproj" />
+    <ProjectReference Include="..\JobPlatform.Shared\JobPlatform.Shared.csproj" />
   </ItemGroup>
 
 </Project>

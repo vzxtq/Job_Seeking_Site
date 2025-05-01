@@ -14,8 +14,9 @@ builder.Services.AddControllers()
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
 });
 
+var connectionString = builder.Configuration["JobDbConnection"];
 builder.Services.AddDbContext<JobDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("JobDbConnection")));
+    options.UseNpgsql(connectionString));
 
 
 var key = builder.Configuration["Jwt:Key"];
@@ -51,4 +52,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run("http://0.0.0.0:8080");
