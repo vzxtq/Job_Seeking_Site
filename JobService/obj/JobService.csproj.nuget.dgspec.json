@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\jobPlatform\\jobservice\\JobService.csproj": {}
+    "C:\\Users\\user\\jobPlatform\\JobService\\JobService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\jobPlatform\\jobservice\\JobService.csproj": {
+    "C:\\Users\\user\\jobPlatform\\JobService\\JobService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\jobPlatform\\jobservice\\JobService.csproj",
+        "projectUniqueName": "C:\\Users\\user\\jobPlatform\\JobService\\JobService.csproj",
         "projectName": "JobService",
-        "projectPath": "C:\\Users\\user\\jobPlatform\\jobservice\\JobService.csproj",
+        "projectPath": "C:\\Users\\user\\jobPlatform\\JobService\\JobService.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\jobPlatform\\jobservice\\obj\\",
+        "outputPath": "C:\\Users\\user\\jobPlatform\\JobService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

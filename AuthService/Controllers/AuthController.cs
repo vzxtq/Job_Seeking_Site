@@ -43,7 +43,7 @@ public class AuthController : ControllerBase
 
             using (var HttpClient = new HttpClient())
             {
-                var profileServiceUrl = "http://localhost:5055/api/profile";
+                var profileServiceUrl = "http://profileservice:8080/api/profile";
                 var response = await HttpClient.PostAsJsonAsync(profileServiceUrl, profileData);
 
                 if (!response.IsSuccessStatusCode)

@@ -38,7 +38,7 @@ services:
       - "5003:8080"
     environment:
       AuthDbConnection: "Host=postgres;Port=5432;Database=auth_db;Username=postgres;Password=2005"
-      ProfileService__Url: "http://profileservice:5001"
+      ProfileService__Url: "http://profileservice:8080"
 
   jobservice:
     build: ./JobService
@@ -52,9 +52,10 @@ services:
   applicationservice:
     build: ./ApplicationService
     depends_on:
-      - authservice
-      - jobservice
+      - postgres
     ports:
       - "5004:8080"
+    environment:
+      ApplicationDbConnection: "Host=postgres;Port=5432;Database=application_db;Username=postgres;Password=2005"
 volumes:
   pgdata:

@@ -5,6 +5,7 @@ using System.Text;
 using ProfileService.Models;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +45,12 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ProfileDbContext>();
+    db.Database.Migrate();
+}
 
 app.UseAuthentication();
 
