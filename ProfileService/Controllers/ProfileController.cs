@@ -45,13 +45,13 @@ public class ProfileController : ControllerBase
 
         return CreatedAtAction(nameof(GetProfile), new { id = profileDto.Id }, profileDto);
     }
-    
+
     [Authorize]
     [HttpGet("me")]
     public IActionResult GetProfile()
     {
-        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? 
-                    User.FindFirst("sub")?.Value ?? 
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ??
+                    User.FindFirst("sub")?.Value ??
                     User.FindFirst("unique_name")?.Value;
 
         var email = User.FindFirst(ClaimTypes.Email)?.Value;
@@ -68,5 +68,27 @@ public class ProfileController : ControllerBase
             Email = email,
             Roles = roles
         });
+    }
+
+    [HttpGet("applications")] 
+    public async Task<IActionResult> GetApplications([FromServices] IHttpClientFactory httpClientFactory)
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized("User ID not found");
+        }
+
+        var client = httpClientFactory.CreateClient();
+        client.BaseAddress = new Uri("http://applicationservice:8080");
+
+        var response = await client.GetAsync($"/applications?userId={userId}");
+        if (!response.IsSuccessStatusCode)
+        {
+            return StatusCode((int)response.StatusCode, "Failed to fetch applications");
+        }
+
+        var content = await response.Content.ReadAsStringAsync();
+        return Content(content, "application/json");
     }
 }
