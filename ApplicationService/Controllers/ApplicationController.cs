@@ -1,9 +1,10 @@
 using System.CodeDom.Compiler;
 using System.Data.Common;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 [ApiController]
-[Route("api/application")]
+[Route("api/applications")]
 public class ApplicationController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
@@ -33,5 +34,12 @@ public class ApplicationController : ControllerBase
         await _context.SaveChangesAsync();
 
         return Ok(new { Message = "Application submitted successfully." });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllApplications()
+    {
+        var applications = await _context.Applications.ToListAsync();
+        return Ok(applications);
     }
 }

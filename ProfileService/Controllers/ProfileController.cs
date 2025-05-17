@@ -10,10 +10,12 @@ using ProfileService.Models;
 public class ProfileController : ControllerBase
 {
     private readonly ProfileDbContext _context;
+    private readonly ILogger<ProfileController> _logger;
 
-    public ProfileController(ProfileDbContext context)
+    public ProfileController(ProfileDbContext context, ILogger<ProfileController> logger)
     {
         _context = context;
+        _logger = logger;
     }
 
     [HttpPost]
@@ -79,16 +81,30 @@ public class ProfileController : ControllerBase
             return Unauthorized("User ID not found");
         }
 
+        var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+        _logger.LogInformation("User role" + userRole);
+
         var client = httpClientFactory.CreateClient();
         client.BaseAddress = new Uri("http://applicationservice:8080");
 
-        var response = await client.GetAsync($"/applications?userId={userId}");
+        HttpResponseMessage response;
+
+        if (userRole != "Employer")
+        {
+            response = await client.GetAsync("api/applications?userId={userId}");
+        }
+        else
+        {
+            response = await client.GetAsync("api/applications");
+        }
+
         if (!response.IsSuccessStatusCode)
         {
             return StatusCode((int)response.StatusCode, "Failed to fetch applications");
         }
 
         var content = await response.Content.ReadAsStringAsync();
+
         return Content(content, "application/json");
     }
 }
