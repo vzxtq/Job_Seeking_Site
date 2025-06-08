@@ -47,6 +47,5 @@ namespace JobService.Controllers
 
             return Ok(new {jobId = job.Id});
         }
-
     }
 }

@@ -14,7 +14,6 @@ namespace JobService.Controllers
         public DeleteJobController(JobDbContext context)
         {
             _context = context;
-
         }
 
         [HttpDelete("{jobId}")]

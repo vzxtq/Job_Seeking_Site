@@ -14,7 +14,7 @@ builder.Services.AddControllers()
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
 });
 
-var connectionString = builder.Configuration["JobDbConnection"];
+var connectionString = builder.Configuration.GetConnectionString("JobDbConnection");
 builder.Services.AddDbContext<JobDbContext>(options =>
     options.UseNpgsql(connectionString));
 
@@ -45,6 +45,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
 
 using (var scope = app.Services.CreateScope())
 {

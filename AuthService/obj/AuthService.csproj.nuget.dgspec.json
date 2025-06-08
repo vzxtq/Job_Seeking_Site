@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\jobPlatform\\AuthService\\AuthService.csproj": {}
+    "C:\\Users\\user\\jobplatform\\authservice\\AuthService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\jobPlatform\\AuthService\\AuthService.csproj": {
+    "C:\\Users\\user\\jobplatform\\authservice\\AuthService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\jobPlatform\\AuthService\\AuthService.csproj",
+        "projectUniqueName": "C:\\Users\\user\\jobplatform\\authservice\\AuthService.csproj",
         "projectName": "AuthService",
-        "projectPath": "C:\\Users\\user\\jobPlatform\\AuthService\\AuthService.csproj",
+        "projectPath": "C:\\Users\\user\\jobplatform\\authservice\\AuthService.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\jobPlatform\\AuthService\\obj\\",
+        "outputPath": "C:\\Users\\user\\jobplatform\\authservice\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj": {
-                "projectPath": "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj"
+              "C:\\Users\\user\\jobplatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj": {
+                "projectPath": "C:\\Users\\user\\jobplatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj"
               }
             }
           }
@@ -121,14 +120,14 @@
         }
       }
     },
-    "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj": {
+    "C:\\Users\\user\\jobplatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\user\\jobplatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj",
         "projectName": "JobPlatform.Shared",
-        "projectPath": "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj",
+        "projectPath": "C:\\Users\\user\\jobplatform\\JobPlatform.Shared\\JobPlatform.Shared.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\jobPlatform\\JobPlatform.Shared\\obj\\",
+        "outputPath": "C:\\Users\\user\\jobplatform\\JobPlatform.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -143,7 +142,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

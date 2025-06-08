@@ -7,5 +7,5 @@ public class ApplicationModel
     public required string Email { get; set; }
     public required string Country { get; set; }
     public required string Resume { get; set; } // Mock
-    public string ?CoverLetter { get; set; }
+    public string? CoverLetter { get; set; }
 }
